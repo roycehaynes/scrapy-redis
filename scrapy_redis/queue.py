@@ -27,6 +27,8 @@ class Base(object):
 
     def _decode_request(self, encoded_request):
         """Decode an request previously encoded"""
+        request = request_from_dict(pickle.loads(encoded_request), self.spider)
+        'the decoded request is {}'.format(request)
         return request_from_dict(pickle.loads(encoded_request), self.spider)
 
     def __len__(self):
